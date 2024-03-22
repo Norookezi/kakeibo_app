@@ -1,27 +1,25 @@
-#container {
-  text-align: center;
+$highlight-opacity: 0.3;
+$highlight-color: hsla(163, 91%, 25%, $highlight-opacity);
 
+ion-content { --ion-background-color: #172A3A; min-height: 100vh;}
+
+.trapezoid {
+	border-top: 0.5em solid $highlight-color;
+	border-left: 0.5em solid transparent;
+	border-right: 0.5em solid transparent;
+	height: 0;
+	width: 100%;
+  left: -25%;
+  display: block;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+.odd {
+  align-self: flex-end;
+  text-align: end;
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+  .trapezoid {
+    left: unset;
+    right: -25%;
+  }
 }

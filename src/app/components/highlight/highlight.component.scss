@@ -1,0 +1,39 @@
+$highlight-opacity: 0.3;
+$highlight-height: 1.7em;
+
+$highlight-color: hsla(163, 91%, 25%, $highlight-opacity);
+
+$text-color: hsla(hue($highlight-color), saturation($highlight-color), 90%, 1);
+
+.highlight {
+  display: inline-block;
+  position: relative;
+
+  color: $text-color;
+  span {
+    &::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      left: -0.5em;
+      border-width: 0 0 $highlight-height 0.5em;
+      border-color: transparent transparent $highlight-color transparent;
+    }
+    &::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      right: -0.5em;
+      border-width: $highlight-height 0.5em 0 0;
+      border-color: $highlight-color transparent transparent transparent;
+    }
+    background-color: $highlight-color;
+    z-index: -1;
+    height: $highlight-height;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
