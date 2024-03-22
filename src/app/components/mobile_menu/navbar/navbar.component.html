@@ -1,0 +1,9 @@
+<div class="fixed w-screen h-screen pt-20 duration-500 bg-[#172A3A]" [ngClass]="!isOpen?'translate-x-full':'-translate-x-0'">
+<nav>
+  <ul class="text-white font-mina text-center *:p-3">
+    <li *ngFor="let link of menus">
+      <a [href]="link.link">{{link.name}}</a>
+    </li>
+  </ul>
+</nav>
+</div>
