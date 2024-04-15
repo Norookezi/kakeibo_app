@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Platform } from '@angular/cdk/platform';
 
 @Component({
@@ -6,15 +6,12 @@ import { Platform } from '@angular/cdk/platform';
   templateUrl: './get_app.component.html',
   styleUrls: ['./get_app.component.css']
 })
-export class GetAppComponent implements OnInit {
+export class GetAppComponent {
   platformName!: string;
 
   constructor(private platform: Platform) {
     const platformName = this.getPlatformName();
     this.platformName = platformName;
-  }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   getPlatformName(): string {
