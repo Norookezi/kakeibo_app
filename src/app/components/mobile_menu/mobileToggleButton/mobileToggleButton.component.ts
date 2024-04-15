@@ -3,11 +3,11 @@ import { IsOpenService } from '../isOpen.service';
 
 @Component({
   selector: 'app-mobile-menu-toggle',
-  templateUrl: './toggle_button.component.html',
-  styleUrls: ['./toggle_button.component.css']
+  templateUrl: './mobileToggleButton.component.html',
+  styleUrls: ['./mobileToggleButton.component.css']
 })
 
-export class Toggle_buttonComponent {
+export class MobileToggleButtonComponent {
   @ViewChild('toggleMenuClosed') toggleMenuClosed!: ElementRef;
   @ViewChild('toggleMenuOpen') toggleMenuOpen!: ElementRef;
 
@@ -17,12 +17,6 @@ export class Toggle_buttonComponent {
   constructor(private renderer: Renderer2, private isOpenService: IsOpenService) {
     isOpenService.setIsOpen(false);
   }
-
-  ngAfterViewInit(): void {
-    console.log(this.toggleMenuClosed?.nativeElement);
-    console.log(this.toggleMenuOpen?.nativeElement);
-  }
-
   toggleMenu() {
     this.isOpen = !this.isOpen;
     this.isOpenService.setIsOpen(this.isOpen);
@@ -32,12 +26,6 @@ export class Toggle_buttonComponent {
 
         const toggleMenuClosed = ind;
         const toggleMenuOpen = 100-ind;
-
-        if (index % 10 === 0) {
-          console.log('toggleMenuClosed', toggleMenuClosed);
-          console.log('toggleMenuOpen', toggleMenuOpen);
-          console.log(this.isOpen)
-        }
 
         this.renderer.setStyle(this.toggleMenuClosed.nativeElement, 'transform', `rotateZ(${(toggleMenuClosed * 3.6)}deg)`);
         this.renderer.setStyle(this.toggleMenuClosed.nativeElement, 'opacity', toggleMenuClosed/100);

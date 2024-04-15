@@ -1,4 +1,4 @@
-<div class="fixed w-screen h-screen pt-20 duration-500 bg-[#172A3A]" [ngClass]="!isOpen?'translate-x-full':'-translate-x-0'">
+<div class="fixed right-0 h-screen pt-20 duration-500 bg-[#172A3A] overflow-hidden" [ngClass]="isOpen?'w-[100vw]':'w-[0vw]'">
 <nav>
   <ul class="text-white font-mina text-center *:p-3">
     <li *ngFor="let link of menus">
