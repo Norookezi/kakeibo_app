@@ -2,15 +2,4 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@font-face {
-  font-family: 'Mina';
-  font-weight: 400;
-  src: url(../assets/fonts/Mina-Regular.ttf);
-}
-@font-face {
-  font-family: 'Mina';
-  font-weight: 700;
-  src: url(../assets/fonts/Mina-Bold.ttf);
-}
-
 ion-content { --ion-background-color: transparent; }
