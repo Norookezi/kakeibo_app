@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NamedRoute } from 'src/namedroutes';
-import { AppHomePage } from './pages/app/home/home.page';
+import { AppDashboardPage } from './pages/app/dashboard/dashboard.page';
 
 export const routes: NamedRoute[] = [
   {
-    name: 'homeApp',
-    path: 'app/home/:page',
-    component: AppHomePage,
+    name: 'dashboardApp',
+    path: 'app/dashboard',
+    component: AppDashboardPage,
   },
   {
     name: 'app',
     path: 'app',
-    redirectTo: 'app/home/dashboard',
+    redirectTo: 'app/dashboard',
   },
 ];
 

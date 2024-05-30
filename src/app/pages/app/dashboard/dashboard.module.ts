@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { AppNavBarModule } from 'src/app/components/appNavBar/appNavBar.module';
 import { AppHeaderModule } from 'src/app/components/appHeader/appHeader.module';
-import { AppHomePage } from './home.page';
+import { AppDashboardPage } from './dashboard.page';
 
 @NgModule({
-  declarations: [AppHomePage],
+  declarations: [AppDashboardPage],
   imports: [
     CommonModule,
     IonicModule,
     AppNavBarModule,
     AppHeaderModule
   ],
-  exports: [AppHomePage],
+  exports: [AppDashboardPage],
 })
 
-export class AppHomePageModule {}
+export class AppDashboardPageModule {}
