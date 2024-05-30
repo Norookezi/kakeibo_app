@@ -1,4 +1,5 @@
 {
+  "doctype-first": false,
   "root": true,
   "ignorePatterns": ["projects/**/*"],
   "overrides": [
