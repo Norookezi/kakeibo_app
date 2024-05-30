@@ -6,11 +6,11 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AppHomePageModule } from './pages/app/home/home.module';
+import { AppDashboardPageModule } from './pages/app/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AppHomePageModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AppDashboardPageModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
