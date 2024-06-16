@@ -3,3 +3,13 @@
 @import 'tailwindcss/utilities';
 
 ion-content { --ion-background-color: transparent; }
+
+@font-face {
+  font-family: VujahdayScript;
+  src: url("../assets/fonts/VujahdayScript-Regular.ttf");
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("../assets/fonts/Inter-VariableFont_slnt,wght.ttf");
+}

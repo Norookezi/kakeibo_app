@@ -1,13 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{html,ts}'],
+  content: ['./src/**/*.{html,ts,css}'],
   theme: {
     extend: {
       fontFamily: {
         'mina': ['"Mina"', "sans-serif"],
         'mansalva': ['"Mansalva"', "sans-serif"],
-        'major': ['"Major Mono Display"', "monospace"]
-
+        'major': ['"Major Mono Display"', "monospace"],
+        'Vujahday': ['"VujahdayScript"', "sans-serif"],
+        'Inter': ['"Inter"', "sans-serif"],
       },
       colors: {
         'apple-blossom': '#AB3E41',
