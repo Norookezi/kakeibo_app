@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { AppNavBarModule } from 'src/app/components/appNavBar/appNavBar.module';
-import { AppHeaderModule } from 'src/app/components/appHeader/appHeader.module';
+import { AppNavBarModule } from '@component/appNavBar/appNavBar.module';
+import { AppHeaderModule } from '@component/appHeader/appHeader.module';
 import { AppDashboardPage } from './dashboard.page';
 
 @NgModule({
@@ -16,4 +16,4 @@ import { AppDashboardPage } from './dashboard.page';
   exports: [AppDashboardPage],
 })
 
-export class AppDashboardPageModule {}
+export class AppDashboardPageModule { }
