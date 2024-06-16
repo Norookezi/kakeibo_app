@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NamedRoute } from 'src/namedroutes';
-import { AppDashboardPage } from './pages/app/dashboard/dashboard.page';
+import { AppDashboardPage } from '@page/app/dashboard/dashboard.page';
 import { WebHomePage } from '@page/web/home/home.page';
 
 export const routes: NamedRoute[] = [
