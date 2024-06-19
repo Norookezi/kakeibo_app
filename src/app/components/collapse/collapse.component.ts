@@ -11,7 +11,6 @@ export class CollapseComponent {
   isCollapsed: boolean = false;
 
   toggleCollapse() {
-    console.log('toggleCollapse: ', this.isCollapsed);
     this.isCollapsed =!this.isCollapsed;
   }
 
