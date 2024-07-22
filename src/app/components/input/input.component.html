@@ -1,0 +1,21 @@
+<div class="relative border-b-2 border-b-blumine flex mt-4 max-w-80">
+    <input
+      class="z-20 peer py-1 !outline-none bg-transparent flex-1 flex-shrink"
+      [(ngModel)]="text"
+      [type]="activeType??type"
+      [name]="name"
+      [id]="name"
+    />
+    <div *ngIf="type==='password'" class="relative">
+      <div (click)="passwordVisibilityChanged()" for="showpass" class="w-[24px] aspect-square relative overflow-hidden peer-valid:bg-eastern-blue peer-invalid:bg-well-read">
+        <img class="h-full w-auto max-w-none absolute block duration-200 " style="transition-timing-function: steps(11);" src="/assets/images/eyes.png"
+        [ngClass]="!isPasswordShown?'!-left-[1100%]':'!left-[0%]'" alt="">
+      </div>
+    </div>
+    <label
+      [for]="name"
+      class="peer-valid:text-eastern-blue peer-invalid:text-well-read peer-focus:text-[0.8em] peer-focus:font-semibold peer-focus:-top-[-10%] absolute top-1/2 left-0 -translate-y-1/2 duration-200 w-auto"
+      [ngClass]="isActive ? '!-top-[-10%] !text-[0.8em] !font-semibold' : ''"
+      ><ng-content></ng-content
+    ></label>
+</div>
