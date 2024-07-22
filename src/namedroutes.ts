@@ -25,8 +25,10 @@ export class RouteHelper {
         return route;
     }
 
-    static redirect(option: {router: Router, route: NamedRoute}) {
-        const {router, route} = option;
-        router.navigate([route.path]);
+    static redirect(option: { router: Router, route: NamedRoute }) {
+      const { router, route } = option;
+      console.log(`Redirecting to route: ${route.path}`);
+      router.navigateByUrl(route.path as string);
+      //router.navigate([]);
     }
 }

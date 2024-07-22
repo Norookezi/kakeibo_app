@@ -1,9 +1,4 @@
-<ion-content
-  scrollY="{false}"
-  class="w-screen overflow-x-hidden"
-  viewportheight
-  [fullscreen]="true"
->
+<div class="w-screen overflow-x-hidden">
   <app-appHeader [allowBack]="false"></app-appHeader>
   <section class="flex flex-col items-center justify-center">
     <div
@@ -61,13 +56,13 @@
     </h3>
     <div class="flex flex-wrap *:flex-1 *:my-3 w-1/2 m-auto mt-8">
       <img
-        *ngIf="device != 'IOS'"
+        *ngIf="device !== 'IOS'"
         src="assets/images/android_button.svg"
         class="px-3 max-h-[10vh]"
         alt="Get app for Android"
       />
       <img
-        *ngIf="device != 'ANDROID'"
+        *ngIf="device !== 'ANDROID'"
         src="assets/images/ios_button.svg"
         class="px-3 max-h-[10vh]"
         alt="Get app for Ios"
@@ -175,4 +170,4 @@
     </app-collapse>
   </section>
   <app-webFooter></app-webFooter>
-</ion-content>
+</div>
