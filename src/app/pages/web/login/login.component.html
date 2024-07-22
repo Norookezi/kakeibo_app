@@ -1,0 +1,36 @@
+<div class="w-screen overflow-x-hidden">
+<div class="min-h-screen w-screen flex flex-col max-sm:justify-start justify-center align-middle">
+  <app-appHeader></app-appHeader>
+  <div name="top_section" class="relative max-sm:flex items-center justify-center flex-1 hidden">
+    <img class="w-4/5 max-w-96" src="/assets/undraw_bookmarks_re_mq1u.svg" alt="">
+  </div>
+  <div class="bg-white rounded-t-lg min-h-1/2 max-sm:w-screen p-5 flex flex-col max-sm:flex items-center w-1/2 max-sm:max-w-none max-w-96 max-sm:static absolute self-center">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" method="post" [ngClass]="formType==='register'?'hidden':'unset'" class="w-full max-w-96">
+      <app-input formControlName="email" name="email" id="login" type="text"
+        >Email</app-input
+      >
+      <app-input formControlName="password" name="password" id="password" type="password"
+        >Password</app-input
+      >
+      <button class="p-1 border-eastern-blue border-[0.20rem] rounded-lg bg-transparent font-bold text-eastern-blue block mx-auto my-4 w-40 text-center" type="submit">Connexion</button>
+    </form>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)" method="post" [ngClass]="formType==='login'?'hidden':'unset'" class="w-full max-w-96">
+      <app-input formControlName="email" name="email" id="login" type="text"
+        >Email</app-input
+      >
+      <app-input formControlName="password" name="password" id="password" type="password"
+        >Password</app-input
+      >
+      <app-input formControlName="confirmpassword" name="confirmpassword" id="confirmpassword" type="password"
+        >confirmPassword</app-input
+      >
+      <button class="p-1 border-eastern-blue border-[0.20rem] rounded-lg bg-transparent font-bold text-eastern-blue block mx-auto my-4 w-40 text-center" type="submit">Connexion</button>
+    </form>
+    <div class="flex flex-col justify-end items-end flex-1 w-full max-sm:items-start">
+      <a href="#" class="underline opacity-75 hover:opacity-100">Mot de passe oublié?</a>
+      <p [ngClass]="formType==='register'?'hidden':'unset'">Déjà un compte ? <a (click)="formType='register'" class="underline opacity-75 hover:opacity-100">Connectez-vous</a></p>
+      <p [ngClass]="formType==='login'?'hidden':'unset'">Pas encore inscrit? <a (click)="formType='login'" class="underline opacity-75 hover:opacity-100">Inscrivez-vous</a></p>
+    </div>
+  </div>
+</div>
+</div>
