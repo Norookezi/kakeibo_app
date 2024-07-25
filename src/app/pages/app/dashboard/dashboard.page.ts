@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Page, OnInit } from '@angular/core';
 
-@Component({
+@Page({
   selector: 'app-dashboardApp',
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.css']

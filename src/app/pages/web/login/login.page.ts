@@ -1,14 +1,14 @@
-  import { Component, OnInit } from '@angular/core';
+  import { Page, OnInit } from '@angular/core';
   import { FormGroup, FormControl, ReactiveFormsModule, Validators, FormBuilder, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
   import { request } from 'requests';
 
 
-  @Component({
+  @Page({
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
   })
-  export class LoginComponent implements OnInit {
+  export class LoginPage implements OnInit {
     testURL:string = "https://kakeibo.free.beeceptor.com";
     formType: 'login' | 'register' = 'login';
     onSubmit(event: FormGroup<any>) {
