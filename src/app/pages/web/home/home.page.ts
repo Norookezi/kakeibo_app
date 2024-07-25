@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Page, OnInit } from '@angular/core';
 
-@Component({
+@Page({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.css']
