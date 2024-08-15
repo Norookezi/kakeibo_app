@@ -1,0 +1,10 @@
+@import "/src/theme/variables.scss";
+
+.link {
+    color: $info;
+    text-decoration: underline;
+
+    &:visited {
+        color: $hit-pink
+    }
+}

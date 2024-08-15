@@ -1,0 +1,4 @@
+<div class="button" [class.disabled]="disabled">
+  <ng-content></ng-content>
+    <input [type]="type" [disabled]="disabled" (click)="clickAction()" [value]="placeholder">
+</div>

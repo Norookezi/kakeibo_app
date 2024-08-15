@@ -6,12 +6,24 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { WebHomePageModule } from '@page/web/home/home.module';
-import { LoginModule } from '@page/web/login/login.module';
+import { TutorialsModule } from '@page/tutorials/tutorials.module';
+import { LoginModule } from '@page/login/login.module';
+import { HeaderModule } from "./components/header/header.module";
+import { HomeModule } from '@page/home/home.module';
+import { ForgotpasswordModule } from '@page/forgotpassword/forgotpassword.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, WebHomePageModule, LoginModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HomeModule,
+    TutorialsModule,
+    LoginModule,
+    HeaderModule,
+    ForgotpasswordModule
+],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

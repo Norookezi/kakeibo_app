@@ -1,0 +1,70 @@
+@import "/src/theme/variables.scss";
+
+.toastHandler {
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+}
+
+@mixin toast-color($color) {
+    position: relative;
+    border-radius: 0.2em;
+    margin: 0.3em;
+    width: clamp(25vw, 50rem, 40vw);
+    overflow: hidden;
+    border: 0.2em solid rgba($color, 0.3);
+    background-color: rgba($color, 0.3);
+    color: $color;
+    padding: 1.3em;
+    backdrop-filter: blur(15px);
+
+    @media (max-width: 423px) {
+        width: 100%;
+        max-width: none;
+    }
+    &.kill {
+        animation: killToast 1s;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    .countdown {
+        position:absolute;
+        bottom: 0;
+        left:0;
+        height: 0.2em;
+        background-color: $color;
+        display: block;
+    }   
+}
+  .toast {
+    $toastColor: $white;
+  
+    &.warning {
+      @include toast-color($warning);
+    }
+    &.success {
+      @include toast-color($eastern-blue);
+    }
+    &.info {
+      @include toast-color($info);
+    }
+    &.error {
+      @include toast-color($crimson);
+    }
+  }
+@keyframes killToast {
+    0% {
+        transform: translateX(0%);
+    }
+    50% {
+        transform: translateX(-100%);
+        max-height: 100vh;
+    }
+    100% {
+        transform: translateX(-100%);
+        max-height: 0vh;
+    }
+}
