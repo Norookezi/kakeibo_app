@@ -1,9 +1,9 @@
-import { Page, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-@Page({
+@Component({
   selector: 'app-terms',
-  templateUrl: './terms.component.html',
-  styleUrls: ['./terms.component.scss'],
+  templateUrl: './terms.page.html',
+  styleUrls: ['./terms.page.scss'],
 })
 export class TermsPage  implements OnInit {
 

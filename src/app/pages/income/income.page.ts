@@ -1,9 +1,9 @@
-import { Page, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-@Page({
+@Component({
   selector: 'app-income',
-  templateUrl: './income.component.html',
-  styleUrls: ['./income.component.scss'],
+  templateUrl: './income.page.html',
+  styleUrls: ['./income.page.scss'],
 })
 export class IncomePage  implements OnInit {
 

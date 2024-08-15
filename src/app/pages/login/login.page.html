@@ -1,3 +1,21 @@
-<p>
-  login works!
-</p>
+<div class="bod">
+  <div class="login-modal">
+      <form *ngIf="activeForm==='login'" action="" name="login" [formGroup]="loginForm">
+        <app-input placeholder="Login" formControlName="login" type="text"></app-input>
+        <app-input placeholder="Password" formControlName="password" type="password"></app-input>
+        <app-button placeholder="Connection" type="submit" [disabled]="loginForm.invalid"></app-button>
+      </form>
+      <form *ngIf="activeForm==='register'" action="" name="register" [formGroup]="registerForm">
+        <app-input placeholder="Login" formControlName="login" type="text"></app-input>
+        <app-input placeholder="Password" formControlName="password" type="password"></app-input>
+        <app-input placeholder="Confirm password" (ngModelChange)="checkMatch()" formControlName="confirmPassword" type="password"></app-input>
+        <app-button placeholder="Connection" type="submit" [disabled]="registerForm.invalid"></app-button>
+      </form>
+
+      <div *ngIf="activeForm==='login'">
+        <p><a (click)="redirect({name: 'recovery'})">Forgot password ?</a></p>
+        <p>Don't have an account ? <a (click)="redirect({name: 'register'})" >Join us here</a></p>
+      </div>
+      <p *ngIf="activeForm==='register'">Already have an account ? <a (click)="redirect({name: 'login'})" >Login here</a></p>
+  </div>
+</div>

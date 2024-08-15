@@ -1,9 +1,9 @@
-import { Page, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-@Page({
+@Component({
   selector: 'app-faq',
-  templateUrl: './faq.component.html',
-  styleUrls: ['./faq.component.scss'],
+  templateUrl: './faq.page.html',
+  styleUrls: ['./faq.page.scss'],
 })
 export class FaqPage  implements OnInit {
 

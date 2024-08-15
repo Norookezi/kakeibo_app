@@ -1,9 +1,9 @@
-import { Page, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-@Page({
+@Component({
   selector: 'app-groups',
-  templateUrl: './groups.component.html',
-  styleUrls: ['./groups.component.scss'],
+  templateUrl: './groups.page.html',
+  styleUrls: ['./groups.page.scss'],
 })
 export class GroupsPage  implements OnInit {
 

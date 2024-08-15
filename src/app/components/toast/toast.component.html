@@ -1,0 +1,9 @@
+<ul class="toastHandler">
+  <li *ngFor="let toast of toastList | keyvalue" [id]="toast.key" class="toast" [ngClass]="toast.value.type">
+      <h3>{{toast.value.title}}</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, doloremque. Maiores rerum id veniam aliquam
+        nulla voluptatum optio iure omnis mollitia modi? Sapiente aliquid optio nobis consectetur hic tenetur adipisci!
+      </p>
+      <span [style.width.%]="100 - ((toast.value.createdAt - (clockService.now$ | async)!) * 100 / (toast.value.createdAt - toast.value.expiresAt))" class="countdown"></span>
+  </li>
+</ul>

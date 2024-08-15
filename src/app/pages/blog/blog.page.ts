@@ -1,9 +1,9 @@
-import { Page, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-@Page({
+@Component({
   selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.scss'],
+  templateUrl: './blog.page.html',
+  styleUrls: ['./blog.page.scss'],
 })
 export class BlogPage  implements OnInit {
 

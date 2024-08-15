@@ -1,0 +1,24 @@
+@import "/src/theme/variables.scss";
+
+.button {
+    display: flex;
+    justify-content: center;
+
+    &.disabled {
+        opacity: 0.5;
+    }
+
+    &:not(.disabled) input:active {
+        box-shadow: inset 5px 5px 15px -6px rgba(0,0,0,0.42);
+    }
+
+    input {
+        
+
+        border: 0.2em solid $eastern-blue;
+        border-radius: 0.2em;
+        padding: 0.3em 2em;
+        text-align: center;
+        margin: auto;
+    }
+}

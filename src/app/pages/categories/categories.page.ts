@@ -1,9 +1,9 @@
-import { Page, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-@Page({
+@Component({
   selector: 'app-categories',
-  templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.scss'],
+  templateUrl: './categories.page.html',
+  styleUrls: ['./categories.page.scss'],
 })
 export class CategoriesPage  implements OnInit {
 

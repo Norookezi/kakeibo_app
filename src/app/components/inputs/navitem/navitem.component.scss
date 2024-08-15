@@ -1,0 +1,34 @@
+@import "/src/theme/variables.scss";
+
+input[type="radio"][name="navbar"] {
+    display:none;
+
+    & + label.navbar-label {
+        display: block;
+        width: 100%;
+        position: relative;
+        font-weight: bold;
+        padding: 1em;
+        text-align: center;
+    }
+
+    &:checked + label.navbar-label::after {
+        opacity: 1;
+    }
+    &:hover + label.navbar-label::before{
+        opacity: .5;
+    }
+
+}
+label.navbar-label::after, label.navbar-label::before {
+    opacity: 0;
+    content: "";
+    display:block;
+    position: absolute;
+    height: 0.2em;
+    background-color: $eastern-blue;
+    bottom: 0;
+    left: 0;
+    transition: opacity .2s;
+    width: 100%;
+}

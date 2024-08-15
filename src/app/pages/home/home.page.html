@@ -1,3 +1,147 @@
-<p>
-  home works!
-</p>
+<div class="w-screen overflow-x-hidden">
+  <section class="flex flex-col items-center justify-center overflow-clip">
+    <div
+      class="h-min w-screen max-sm:block flex justify-center mt-32 mb-[5.5rem]"
+    >
+      <div
+        class="flex flex-col max-lg:justify-end items-start max-sm:items-end max-sm:pt-0 pt-64 lg:pt-16 mx-12 mb-3"
+      >
+        <h1
+          class="font-Vujahday max-sm:rotate-[15deg] w-min max-sm:text-[11vw] lg:text-8xl lg:mb-16 text-5xl -rotate-[15deg]"
+        >
+          Kakeibo
+        </h1>
+        <h3 class="max-sm:text-[6vw] text-center text-3xl max-w-[80vw] w-auto">
+          L'application qui vous aide à mieux gérer votre argent
+        </h3>
+      </div>
+      <img
+        class="max-sm:w-full w-1/2 p-3 lg:pl-12 max-h-[50vh]"
+        src="assets/Frame 200.svg"
+        alt=""
+      />
+    </div>
+    <app-button [clickAction]="redirectToLogin" placeholder="Commencez a économiser"></app-button>
+  </section>
+  <section class="mt-[6.5rem] lg:mt-12 flex flex-col">
+    <div class="mb-10 even:self-end even:items-end flex flex-col">
+      <span class="max-sm:text-[6vw] text-[3vw] lg:text-[2vw]"
+        >Gardez un oeil sur vos dépenses</span
+      >
+      <span
+        class="h-[0.4rem] lg:h-[0.7vw] bg-eastern-blue w-[40vw] block mt-[0.65rem]"
+      ></span>
+    </div>
+    <div class="mb-10 even:self-end even:items-end flex flex-col">
+      <span class="max-sm:text-[6vw] text-[3vw] lg:text-[2vw]"
+        >Regroupez vos frais par catégories</span
+      >
+      <span
+        class="h-[0.4rem] lg:h-[0.7vw] bg-eastern-blue w-[40vw] block mt-[0.65rem]"
+      ></span>
+    </div>
+    <div class="mb-10 even:self-end even:items-end flex flex-col">
+      <span class="max-sm:text-[6vw] text-[3vw] lg:text-[2vw]"
+        >Ajoutez vos dépenses en un clic</span
+      >
+      <span
+        class="h-[0.4rem] lg:h-[0.7vw] bg-eastern-blue w-[40vw] block mt-[0.65rem]"
+      ></span>
+    </div>
+  </section>
+  <section>
+    <h3 class="max-sm:text-xl text-3xl text-center">
+      Téléchargez notre application des maintenant
+    </h3>
+    <div class="flex flex-wrap *:flex-1 *:my-3 w-1/2 m-auto mt-8">
+      <img
+        *ngIf="device !== 'IOS'"
+        src="assets/images/android_button.svg"
+        class="px-3 max-h-[10vh]"
+        alt="Get app for Android"
+      />
+      <img
+        *ngIf="device !== 'ANDROID'"
+        src="assets/images/ios_button.svg"
+        class="px-3 max-h-[10vh]"
+        alt="Get app for Ios"
+      />
+    </div>
+    <div
+      class="mt-20 max-sm:w-max justify-evenly w-screen max-sm:-translate-x-40 flex max-sm:rotate-[15.79deg] lg:-rotate-6"
+    >
+      <div class="flex flex-col even:mt-20 ml-3">
+        <img
+          src="assets/images/placeholder_phone.png"
+          class="max-sm:w-[45vw] w-[35vw] lg:w-[20vw]"
+          alt="Placeholder phone //TODO:remplacer"
+        />
+        <img
+          src="assets/images/placeholder_phone.png"
+          class="max-sm:w-[45vw] w-[35vw] lg:w-[20vw]"
+          alt="Placeholder phone //TODO:remplacer"
+        />
+        <img
+          src="assets/images/placeholder_phone.png"
+          class="max-sm:w-[45vw] w-[35vw] lg:w-[20vw] lg:hidden"
+          alt="Placeholder phone //TODO:remplacer"
+        />
+      </div>
+      <div class="flex flex-col even:mt-20 ml-3">
+        <img
+          src="assets/images/placeholder_phone.png"
+          class="max-sm:w-[45vw] w-[35vw] lg:w-[20vw]"
+          alt="Placeholder phone //TODO:remplacer"
+        />
+        <img
+          src="assets/images/placeholder_phone.png"
+          class="max-sm:w-[45vw] w-[35vw] lg:w-[20vw]"
+          alt="Placeholder phone //TODO:remplacer"
+        />
+        <img
+          src="assets/images/placeholder_phone.png"
+          class="max-sm:w-[45vw] w-[35vw] lg:w-[20vw] lg:hidden"
+          alt="Placeholder phone //TODO:remplacer"
+        />
+      </div>
+      <div class="lg:flex max-sm:flex flex-col even:mt-20 ml-3 hidden">
+        <img
+          src="assets/images/placeholder_phone.png"
+          class="max-sm:w-[45vw] w-[35vw] lg:w-[20vw]"
+          alt="Placeholder phone //TODO:remplacer"
+        />
+        <img
+          src="assets/images/placeholder_phone.png"
+          class="max-sm:w-[45vw] w-[35vw] lg:w-[20vw]"
+          alt="Placeholder phone //TODO:remplacer"
+        />
+        <img
+          src="assets/images/placeholder_phone.png"
+          class="max-sm:w-[45vw] w-[35vw] lg:w-[20vw] lg:hidden"
+          alt="Placeholder phone //TODO:remplacer"
+        />
+      </div>
+      <div
+        class="lg:flex max-sm:flex flex-col even:mt-20 ml-3 hidden lg:mb-20 max-sm:mb-20"
+      >
+        <img
+          src="assets/images/placeholder_phone.png"
+          class="max-sm:w-[45vw] w-[35vw] lg:w-[20vw]"
+          alt="Placeholder phone //TODO:remplacer"
+        />
+        <img
+          src="assets/images/placeholder_phone.png"
+          class="max-sm:w-[45vw] w-[35vw] lg:w-[20vw]"
+          alt="Placeholder phone //TODO:remplacer"
+        />
+        <img
+          src="assets/images/placeholder_phone.png"
+          class="max-sm:w-[45vw] w-[35vw] lg:w-[20vw] lg:hidden"
+          alt="Placeholder phone //TODO:remplacer"
+        />
+      </div>
+    </div>
+  </section>
+  <section class="bg-eastern-blue w-screen p-10 text-white">
+  </section>
+</div>

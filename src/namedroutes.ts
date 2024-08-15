@@ -1,5 +1,6 @@
 import { ActivatedRoute, Route, Router } from "@angular/router";
 import { routes } from "./app/app-routing.module";
+import { inject } from "@angular/core";
 
 export interface NamedRoute extends Route {
     name?: string
@@ -7,7 +8,9 @@ export interface NamedRoute extends Route {
 
 
 export class RouteHelper {
-    constructor(route: ActivatedRoute, router: Router) {}
+    static getCurrentRoute(router: Router) {
+      return router.url.substring(1)
+    }
 
     static getRouteByName(name: string): NamedRoute {
         const route: NamedRoute | undefined = routes.find(r=>(r.name ?? 'None') == name);
@@ -25,10 +28,25 @@ export class RouteHelper {
         return route;
     }
 
-    static redirect(option: { router: Router, route: NamedRoute }) {
-      const { router, route } = option;
-      console.log(`Redirecting to route: ${route.path}`);
-      router.navigateByUrl(route.path as string);
-      //router.navigate([]);
+    static redirect(option: {name?: string, path?: string, route?: NamedRoute }, router: Router) {
+        let route: NamedRoute;
+
+        if (Object.keys(option).length != 1) throw new Error("Invalid route argument")
+
+        switch (Object.keys(option)[0]) {
+            case 'name': {
+                route = this.getRouteByName(option['name']!)
+                break;
+            }
+            case 'path': {
+                route = this.getRouteByPath(option['path']!);
+                break;
+            }
+            case 'route': {
+                route = option['route']!;
+            }
+
+        }
+      router.navigate([route!.path]);
     }
 }

@@ -1,9 +1,9 @@
-import { Page, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-@Page({
+@Component({
   selector: 'app-forum',
-  templateUrl: './forum.component.html',
-  styleUrls: ['./forum.component.scss'],
+  templateUrl: './forum.page.html',
+  styleUrls: ['./forum.page.scss'],
 })
 export class ForumPage  implements OnInit {
 
