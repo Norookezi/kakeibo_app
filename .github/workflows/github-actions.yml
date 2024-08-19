@@ -20,3 +20,7 @@ jobs:
     - name: Install dependencies
       run: |
         npm i
+    
+    - name: Install dependencies
+      run: |
+        npm run build
