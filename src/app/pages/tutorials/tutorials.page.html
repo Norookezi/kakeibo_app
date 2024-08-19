@@ -1,0 +1,11 @@
+<app-toast></app-toast>
+<form method="post" [formGroup]="formTest">
+    <app-checkbox formControlName="checkbox" (click)="enableLast($event)" placeholder="checkbox"></app-checkbox>
+    <app-input formControlName="login" [required]="true" name="login" [errors]="formTest.get('login')?.errors" placeholder="text" type="text"></app-input>
+    <app-input formControlName="password" name="password" [errors]="formTest.get('password')?.errors" placeholder="password" type="password"></app-input>
+    <app-input formControlName="login2" [disabled]="login2Disabled" name="login2" [cast]="formatCode" [errors]="formTest.get('login2')?.errors" placeholder="password" type="password"></app-input>
+</form>
+
+<app-button placeholder="button"></app-button>
+<hr>
+<button type="button" (click)="summonToast()">Create toast</button>

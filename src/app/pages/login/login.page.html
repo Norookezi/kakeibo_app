@@ -1,0 +1,24 @@
+<div class="bod">
+  <div class="login-modal">
+      <form *ngIf="activeForm==='login'" action="" name="login" [formGroup]="loginForm">
+        <app-input placeholder="Email" formControlName="email" type="email"></app-input>
+        <app-input placeholder="Password" formControlName="password" type="password"></app-input>
+        <app-button placeholder="Connection" type="submit" [disabled]="loginForm.invalid"></app-button>
+      </form>
+      <form *ngIf="activeForm==='register'" action="" name="register" [formGroup]="registerForm">
+        <app-input placeholder="Name" type="text" formControlName="name"></app-input>
+        <app-input placeholder="First name" type="text" formControlName="firstName"></app-input>
+        <app-input placeholder="Last name" type="text" formControlName="lastName"></app-input>
+        <app-input placeholder="Email" type="text" formControlName="email"></app-input>
+        <app-input placeholder="Password" type="password" formControlName="password"></app-input>
+        <app-input placeholder="Confirm password" type="password" formControlName="confirmPassword"></app-input>
+        <app-button placeholder="Connection" type="submit" [disabled]="registerForm.invalid"></app-button>
+      </form>
+
+      <div *ngIf="activeForm==='login'">
+        <p><a (click)="redirect({name: 'recovery'})">Forgot password ?</a></p>
+        <p>Don't have an account ? <a (click)="redirect({name: 'register'})" >Join us here</a></p>
+      </div>
+      <p *ngIf="activeForm==='register'">Already have an account ? <a (click)="redirect({name: 'login'})" >Login here</a></p>
+  </div>
+</div>

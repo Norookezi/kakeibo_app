@@ -1,0 +1,19 @@
+<div class="z-50 pt-3 relative" (click)="toggleCollapse()">
+  <span>{{ title }}</span>
+  <svg
+    [ngClass]="!isCollapsed ? 'rotate-180' : 'rotate-[270deg]'"
+    class="duration-300 inline-block w-4 ml-5 aspect-square fill-white"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 320 512"
+  >
+    <path
+      d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
+    />
+  </svg>
+  <div
+    class="duration-1000 overflow-hidden ml-4"
+    [ngClass]="isCollapsed ? 'max-h-[100vh] m-4' : 'max-h-[0vh]'"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>

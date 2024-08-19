@@ -1,3 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "/src/tailwind.css";
+@import "/src/theme/variables.scss";
+
+a {
+    color: $info !important;
+    text-decoration: underline  !important;
+    cursor: pointer  !important;
+
+    &:visited {
+        color: $hit-pink  !important;
+    }
+}
+
+*:not(input) { user-select: none;}

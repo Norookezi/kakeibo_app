@@ -1,0 +1,13 @@
+<header>
+    <span class="KAB">&#xe900;</span>
+    <input type="checkbox" name="" id="menutoggle">
+    <label for="menutoggle" class="icon">
+        <span name="opened">&#xe902;</span>
+        <span name="closed">&#xe901;</span>
+
+    </label>
+    <form [formGroup]="navForm">
+        <app-navitem *ngFor="let item of navigation | keyvalue" formControlName="navigation" [label]="item.key"
+            [route]="item.value"></app-navitem>
+    </form>
+</header>

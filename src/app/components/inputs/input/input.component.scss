@@ -1,0 +1,88 @@
+@import "/src/theme/variables.scss";
+
+div.input {
+    position: relative;
+    padding: 1em;
+    margin: 2em 0;
+    display: flex;
+
+    &.required::after {
+        position: absolute;
+        content: "*";
+        color: $crimson;
+        display: block;
+        right: 0;
+    }
+
+    &.disabled {
+        opacity: .5;
+
+        * {
+            cursor:not-allowed
+        }
+    }
+
+    .hid {
+        display: none;
+    }
+
+    label.placeholder {
+        position: absolute;
+        left: 1em;
+        transition: .5s;
+        top: 1em;
+        opacity: .5;
+        user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+    }
+
+    & > input {
+        background-color: transparent;
+        width: calc(100% - 32px);
+        &::placeholder {
+            opacity: 0;
+        }
+        &:not(:placeholder-shown) {
+            &.invalid {
+                border-color: $well-read    
+            }
+            &.valid {
+                border-color: $turquoise
+            }
+        }
+        border-bottom: solid 0.2em $eastern-blue;
+        outline: none !important;
+
+        &:focus + label.placeholder, &:not(:placeholder-shown) + label.placeholder {
+            top: 0em;
+            opacity: 1;
+        }
+    }
+
+    > .eye {
+        & > label {
+            margin-left: 0.5em;
+            width: 24px !important;
+            aspect-ratio: 1;
+            overflow: hidden;
+            display: block;
+            position: relative;
+            background-image: url("/assets/images/eyes.png");
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            transition: background-position 0.1s steps(11);
+        }
+
+        & > input {
+            display: none;
+    
+            &:checked + label {
+                // opacity: .3;
+                background-position: calc(-24px * 11) 0 !important;
+            }
+        }
+    } 
+}
