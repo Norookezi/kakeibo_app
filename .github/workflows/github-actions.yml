@@ -10,12 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v2
+    - name: Set env
+      run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
     - name: Pull Latest Code
       run: |
-        git pull ${{ github.ref }}
+        git pull $RELEASE_VERSION
 
     - name: Install dependencies
       run: |
