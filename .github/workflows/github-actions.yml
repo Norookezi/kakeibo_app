@@ -21,6 +21,6 @@ jobs:
       run: |
         npm i
     
-    - name: Install dependencies
+    - name: Build project
       run: |
         npm run build
