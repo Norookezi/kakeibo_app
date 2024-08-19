@@ -5,7 +5,7 @@
   "overrides": [
     {
       "files": ["*.ts"],
-      "parserOptions": {
+      "parserOptions": { 
         "project": ["tsconfig.json"],
         "createDefaultProgram": true
       },
