@@ -2,8 +2,8 @@ name: Deploy to Server
 
 on:
   push:
-    branches:
-      - Nora  # Trigger on pushes to the main branch
+    tags:
+      - v*
 
 jobs:
   deploy:
@@ -24,3 +24,14 @@ jobs:
     - name: Build project
       run: |
         npm run build
+    
+    - name: Read CHANGELOG
+      id: changelog
+      run: |
+        echo "::set-output name=body::$(cat CHANGELOG.md)"
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@master
+      with:
+        release_name: Release ${{ github.ref }}
+        body: ${{ steps.changelog.outputs.body }}
