@@ -26,7 +26,7 @@ jobs:
         eval "$(ssh-agent -s)"
         ssh-add ~/.ssh/id_rsa
 
-    - name: Verify SSH Connection
+    - name: Verify SSH Connection 1
       run: |
         ssh -o StrictHostKeyChecking=no git@pandacrp.com 'echo "SSH connection established"'
 
