@@ -15,7 +15,7 @@ jobs:
 
     - name: Pull Latest Code
       run: |
-        git pull
+        git pull ${{ github.ref }}
 
     - name: Install dependencies
       run: |
