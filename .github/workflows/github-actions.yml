@@ -13,4 +13,7 @@ jobs:
         username: git
         password: ${{ secrets.PASSWORD }}
         port: 22
-        script: deployKakeibo
+        script: |
+          whoami
+          ls -al
+          deployKakeibo
