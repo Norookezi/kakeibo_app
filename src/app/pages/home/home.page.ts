@@ -12,7 +12,7 @@ export class HomePage implements OnInit {
   userAgent = window.navigator.userAgent
   device?: 'IOS'|'ANDROID';
 
-  constructor(private router: Router) { console.log(this.router) }
+  constructor(private router: Router) {}
 
   redirectToLogin = () => { RouteHelper.redirect({name: 'login'}, this.router) }
 
