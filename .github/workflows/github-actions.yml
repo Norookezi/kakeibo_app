@@ -2,46 +2,36 @@ name: Deploy to Server
 
 on:
   push:
-    branches:
-      - main  # Trigger on pushes to the main branch
+    tags:
+      - v*
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
-
-    - name: Set up SSH
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-
-    - name: Add SSH Key to Agent
-      run: |
-        eval "$(ssh-agent -s)"
-        ssh-add ~/.ssh/id_rsa
-
-    - name: Verify SSH Connection 1
-      run: |
-        ssh -o StrictHostKeyChecking=no git@pandacrp.com 'echo "SSH connection established"'
-
-    - name: Pull Latest Code
-      run: |
-        ssh -o StrictHostKeyChecking=no git@pandacrp.com "cd /home/git/kakeibo_app && git pull"
+    - uses: actions/checkout@v2
+    - name: Set env
+      run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
     - name: Install dependencies
       run: |
-        ssh -o StrictHostKeyChecking=no git@pandacrp.com "cd /home/git/kakeibo_app && npm ci"
-
-    - name: Build Project
+        npm i
+    
+    - name: Build project
       run: |
-        ssh -o StrictHostKeyChecking=no git@pandacrp.com "cd /home/git/kakeibo_app && npm run build"
-
-    - name: Update Manifest
+        npm run build
+    
+    - name: Read CHANGELOG
+      id: changelog
       run: |
-        ssh -o StrictHostKeyChecking=no git@pandacrp.com "cd /home/git/kakeibo_app && echo \"{\\\"last_update\\\": \\\"$(date +'%d-%m-%Y_%H-%M-%S-%3N')\\\"}\" > /var/www/html/kakeibo_manifest.json"
+        echo "::set-output name=body::$(cat CHANGELOG.md)"
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@master
+      env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: ${{ steps.changelog.outputs.body }}
