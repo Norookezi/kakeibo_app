@@ -1,3 +1,4 @@
 <select (change)="change($event)" name="cars" id="cars">
   <option *ngFor="let item of list | keyvalue" [value]="item.key">{{item.value}}</option>
 </select>
+
