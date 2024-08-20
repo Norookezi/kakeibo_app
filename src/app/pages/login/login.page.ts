@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators, ValidatorFn } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RouteHelper } from 'namedroutes';
+import { FormHelper, Inputs } from 'FormHelper';
 
 @Component({
   selector: 'app-login',
@@ -12,25 +13,21 @@ import { RouteHelper } from 'namedroutes';
 export class LoginPage implements OnInit {
   activeForm: 'login'|'register' = 'login'
 
-  loginForm: FormGroup = new FormGroup({
-    login: new FormControl('', {
-      validators: [Validators.required],
-    }),
-    password: new FormControl('', {
-      validators: [Validators.required]
-    }),
-  });
-  registerForm: FormGroup = new FormGroup({
-    login: new FormControl('', {
-      validators: [Validators.required],
-    }),
-    password: new FormControl('', {
-      validators: [Validators.required]
-    }),
-    confirmPassword: new FormControl('', {
-      validators: [Validators.required]
-    }),
-  });
+  formLogin: Array<Inputs> = [
+      {name: "email",  type: "email", placeholder: "Email", validators: [Validators.required]},
+      {name: "password",  type: "password", placeholder: "Password", validators: [Validators.required]},
+  ]
+  formRegister: Array<Inputs> = [
+      {name: "name", placeholder: "Name", type: "text", validators: [Validators.required]},
+      {name: "firstName", placeholder: "First name", type: "text", validators: [Validators.required]},
+      {name: "lastName", placeholder: "Last name", type: "text", validators: [Validators.required]},
+      {name: "email", placeholder: "Email", type: "text", validators: [Validators.required]},
+      {name: "password", placeholder: "Password", type: "password", validators: [Validators.required]},
+      {name: "confirmPassword", placeholder: "Confirm password", type: "password", validators: [Validators.required]},
+  ]
+
+  loginForm: FormGroup = new FormGroup(FormHelper.makeForm(this.formLogin));
+  registerForm: FormGroup = new FormGroup(FormHelper.makeForm(this.formRegister));
 
   setForm(activeForm: 'login'|'register') {
     this.activeForm = activeForm
