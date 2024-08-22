@@ -1,5 +1,8 @@
 @import "/src/theme/variables.scss";
-
+.header-spacer {
+    display: block;
+    height: 8em;
+}
 header {
     overflow-x: clip;
     position: fixed;
