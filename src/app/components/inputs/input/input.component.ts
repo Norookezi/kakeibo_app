@@ -21,7 +21,7 @@ typeof(arg0: string|number|{ [key: string]: DropdownEntry; }) {return typeof arg
   @Input({}) placeholder?: string;
   @Input({}) name! : string;
   @Input({}) disabled: boolean = false;
-  @Input({}) type!: "button" | "checkbox" | "color" | "date" | "datetime-local" | "email" | "file" | "hidden" | "image" | "month" | "number" | "password" | "radio" | "range" | "reset" | "search" | "submit" | "tel" | "text" | "time" | "url" | "week" | "dropdown"
+  @Input({}) type!: "button" | "checkbox" | "textentry" | "color" | "date" | "datetime-local" | "email" | "file" | "hidden" | "image" | "month" | "number" | "password" | "radio" | "range" | "reset" | "search" | "submit" | "tel" | "text" | "time" | "url" | "week" | "dropdown"
   @Input({}) errors?: ValidationErrors | null = undefined;
   @Input({}) value: string | number | {[key: string]: DropdownEntry} = "";
   @Input({}) cast: Function = (value: string): string => { return value; };
