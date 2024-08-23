@@ -1,22 +1,17 @@
-<div>
-    <p>ajouter une dépense</p>
+   <span style="display:block; padding-top:8em;">Span</span>
+   <div class="modal-budgetline">
+      <p>Modal bugetLine</p>
 
-    <form [formGroup]="formGroup">
-       <!-- <ul>
-          <app-input placeholder="Choissisez catégorie"></app-input>
-       </ul>
-       <ul>
-          <app-input placeholder="Choissisez une sous catégorie"></app-input>
-       </ul>
-       <ul>
-          <app-input placeholder="Ajouter la dépense"></app-input>
-       </ul>
-       <ul>
-          <app-input placeholder="brève description"></app-input>
-       </ul> -->
-       <DropdownComponent></DropdownComponent>
-</div>
+      <form action="" name="modal" [formGroup]="modalForm">
+         <app-input *ngFor="let item of formModal" [placeholder]="item.placeholder" [formControlName]="item.name" [type]="item.type"></app-input>
+         <app-dropdown>outcome/income</app-dropdown>
+         <app-dropdown>categories</app-dropdown>
+         <app-dropdown>subCategories</app-dropdown>
+         <app-button placeholder="Add" type="submit" [disabled]="modalForm.invalid"></app-button>
+      </form>
+   </div>
 
-      <br>
-      <button type="submit">Ajouter la dépense</button> 
-    </form>                                                                                                                                                                                                                                                                     
+   <br>
+
+   <button type="submit">Ajouter la dépense</button> 
+                                                                                                                                                                                                                                                                       

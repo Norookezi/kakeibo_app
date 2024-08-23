@@ -8,6 +8,9 @@
       ],
       "@component/*": [
         "app/components/*"
+      ],
+      "@services/*":[
+        "app/services/*"
       ]
     },
     "baseUrl": "src",

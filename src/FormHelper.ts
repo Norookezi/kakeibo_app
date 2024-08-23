@@ -16,7 +16,7 @@ export class FormHelper {
 
 export interface Inputs {
     name: string;
-    type: "text"|"email"|"password";
+    type: "text"|"email"|"password"|"number";
     placeholder: string;
     value?: string
     validators: Array<(control: AbstractControl<any, any>) => ValidationErrors | null>;

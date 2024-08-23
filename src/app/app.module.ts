@@ -11,6 +11,7 @@ import { LoginModule } from '@page/login/login.module';
 import { HeaderModule } from "./components/header/header.module";
 import { HomeModule } from '@page/home/home.module';
 import { ForgotpasswordModule } from '@page/forgotpassword/forgotpassword.module';
+import { DashboardModule } from '@page/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,8 @@ import { ForgotpasswordModule } from '@page/forgotpassword/forgotpassword.module
     TutorialsModule,
     LoginModule,
     HeaderModule,
-    ForgotpasswordModule
+    ForgotpasswordModule,
+    DashboardModule
 ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

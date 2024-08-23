@@ -17,6 +17,7 @@ export class LoginPage implements OnInit {
       {name: "email",  type: "email", placeholder: "Email", validators: [Validators.required]},
       {name: "password",  type: "password", placeholder: "Password", validators: [Validators.required]},
   ]
+  
   formRegister: Array<Inputs> = [
       {name: "name", placeholder: "Name", type: "text", validators: [Validators.required]},
       {name: "firstName", placeholder: "First name", type: "text", validators: [Validators.required]},

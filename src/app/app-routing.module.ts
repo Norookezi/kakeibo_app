@@ -28,6 +28,7 @@ export const routes: NamedRoute[] = [
   { path: 'login', name: 'login', component: LoginPage },
   { path: 'recovery', name: 'recovery', component: ForgotpasswordPage },
   { path: 'register', name: 'register', component: LoginPage },
+  {path: 'dashboard', name: 'dashboard', component: DashboardPage},
   { path: '', name: 'home', component: HomePage },
 ];
 
