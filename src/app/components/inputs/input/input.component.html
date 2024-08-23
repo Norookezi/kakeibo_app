@@ -1,10 +1,18 @@
-<div class="input" [class.required]="required" [class.disabled]="disabled" >
-  <input [(ngModel)]="input" ngDefaultControl [disabled]="disabled" [ngClass]="errors===undefined?'':errors===null?'valid':'invalid'" [placeholder]="placeholder" [type]="elementType"  name="" [id]="'input'+id">
-  <label [for]="'input'+id" class="placeholder" *ngIf="placeholder">{{placeholder}}</label>
-  <span [ngClass]="type==='password'?'eye':'hid'">
-      <input type="checkbox" [value]="passwordVisibility" (change)="togglePassword()" [id]="'checkbox'+id">
-      <label [for]="'checkbox'+id">
-      </label>
-      
+<div class="input" [class.required]="required" [ngClass]="type" [class.disabled]="disabled" >
+  <input [(ngModel)]="input" ngDefaultControl *ngIf="!['checkbox','dropdown', 'textentry'].includes(type)" [disabled]="disabled" [ngClass]="errors===undefined?'':errors===null?'valid':'invalid'" [placeholder]="placeholder" [type]="elementType"  name="" [id]="'input'+id">
+  <label [for]="'input'+id" class="placeholder" [class.checkbox]="type==='checkbox'" *ngIf="placeholder">
+    {{placeholder}}
+    <div *ngIf="type==='checkbox'" class="toggler">
+      <input type="checkbox" [(ngModel)]="input" [id]="'input'+id">
+      <span class="button"></span>
+    </div>
+  </label>
+  <p *ngIf="type === 'textentry'"><ng-content></ng-content></p>
+  <select *ngIf="type==='dropdown'" [(ngModel)]="input" name="" [id]="'input'+id">
+    <option *ngFor="let item of dropdownValue(value)" [value]="item[1].value" [selected]="item[1].selected??false" [disabled]="item[1].disabled??false">{{item[0]}}</option>
+  </select>
+  <span *ngIf="type=='password'" class="passwordVisibility">
+      <input type="checkbox" [value]="passwordVisibility" [(ngModel)]="passwordVisibility" [id]="'checkbox'+id">
+      <label [for]="'checkbox'+id"></label>
   </span>
 </div>

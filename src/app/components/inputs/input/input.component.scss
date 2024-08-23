@@ -1,88 +1,233 @@
 @import "/src/theme/variables.scss";
-
-div.input {
-    position: relative;
-    padding: 1em;
-    margin: 2em 0;
-    display: flex;
-
-    &.required::after {
-        position: absolute;
-        content: "*";
-        color: $crimson;
-        display: block;
-        right: 0;
-    }
-
+.input {
     &.disabled {
-        opacity: .5;
+        opacity: 0.5;
+    }
+    position: relative;
+    margin: 2em;
+    display: flex;
+    align-items: center;
+    border-bottom: $biscay .1em solid;
 
-        * {
-            cursor:not-allowed
-        }
+    &.checkbox, &.textentry {
+        border: none;
     }
 
-    .hid {
-        display: none;
-    }
-
-    label.placeholder {
-        position: absolute;
-        left: 1em;
-        transition: .5s;
-        top: 1em;
-        opacity: .5;
-        user-select: none;
-        -moz-user-select: none;
-        -khtml-user-select: none;
-        -webkit-user-select: none;
-        -o-user-select: none;
-    }
-
-    & > input {
+    & select, & p {
+        padding: 1.5em 0 .5em 1em;
         background-color: transparent;
-        width: calc(100% - 32px);
-        &::placeholder {
-            opacity: 0;
-        }
-        &:not(:placeholder-shown) {
-            &.invalid {
-                border-color: $well-read    
-            }
-            &.valid {
-                border-color: $turquoise
-            }
-        }
-        border-bottom: solid 0.2em $eastern-blue;
-        outline: none !important;
+        width: 100%;
+    }
 
-        &:focus + label.placeholder, &:not(:placeholder-shown) + label.placeholder {
-            top: 0em;
-            opacity: 1;
+    & label {
+        flex: 1;
+    }
+
+    &:not(.checkbox) label.placeholder {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: top .3s;
+    }
+
+    & .toggler {
+        display: inline-block;
+        width: auto;
+        & > input {
+            &:checked + span {
+                background-color: $blumine;
+                &::after {
+                    right: 0%
+                }
+            }
+            display: none;
+        }
+        & > span {
+            &::after {
+                position:absolute;
+                display: block;
+                content: "";
+                right: 1em;
+                transition: right .3s;
+                
+                width: .9em;
+                aspect-ratio: 1;
+                background-color: white;
+                margin: .05em;
+                border-radius: 1em;
+            }
+            border-radius: 1em;
+            position: relative;
+            display: block;
+            width: 2em;
+            transition: background-color .3s;
+            height: 1em;
+            background: #cccccc;
         }
     }
 
-    > .eye {
-        & > label {
-            margin-left: 0.5em;
-            width: 24px !important;
-            aspect-ratio: 1;
-            overflow: hidden;
-            display: block;
-            position: relative;
-            background-image: url("/assets/images/eyes.png");
-            background-repeat: no-repeat;
-            background-position: 0 0;
-            transition: background-position 0.1s steps(11);
+    > input {
+        outline: none;
+        
+        flex: 1;
+        background-color: transparent;
+        
+        
+        &::placeholder {
+            color: transparent;
         }
 
-        & > input {
-            display: none;
-    
-            &:checked + label {
-                // opacity: .3;
-                background-position: calc(-24px * 11) 0 !important;
+        &:not(:placeholder-shown), &:focus {
+
+            & + label {
+                top: -1em;
+                opacity: .8;
             }
         }
-    } 
+    }
+
+    .passwordVisibility {
+        position: relative {
+
+        }
+        > label {
+            background-image: url('/assets/images/eyes.png');
+            background-size: cover !important;
+            transition: background-position .2s steps(11);
+            display: block;
+            aspect-ratio: 1;
+            width: 1em;
+        }
+
+        > input {
+            &:checked + label {
+                background-position: 100% 0;
+            }
+            display: none;
+        }
+    }
+
 }
+// label.checkbox{
+//     display: flex;
+//     width: auto;
+//     justify-content: space-between;
+//     padding: 1em;
+//     margin: 2em;
+
+//     .toggler {
+//         background-color: gray;
+//         border-radius: 0.7em;
+//         display: block;
+//         height: 1.2em;
+//         width: 2em;
+//         position: relative;
+    
+//         input[type="checkbox"] {
+//             display: none;
+//         }
+//         span.button {
+//             height: 1em;
+//             aspect-ratio: 1;
+//             background-color: white;
+//             left: 5%;
+//             display: block;
+//             position: absolute;
+//             top: 50%;
+//             transform: translateY(-50%);
+//             border-radius: 100%;
+//             transition: left 0.2s;
+//         }
+    
+//         :checked + span {
+//             left: .9em;
+//         }
+//     }
+// }
+
+// div.input {
+//     position: relative;
+//     padding: 1em;
+//     margin: 2em 0;
+//     display: flex;
+
+//     &.required::after {
+//         position: absolute;
+//         content: "*";
+//         color: $crimson;
+//         display: block;
+//         right: 0;
+//     }
+
+//     &.disabled {
+//         opacity: .5;
+
+//         * {
+//             cursor:not-allowed
+//         }
+//     }
+
+//     .hid {
+//         display: none;
+//     }
+
+//     label.placeholder {
+//         position: absolute;
+//         left: 1em;
+//         transition: .5s;
+//         top: 1em;
+//         opacity: .5;
+//         user-select: none;
+//         -moz-user-select: none;
+//         -khtml-user-select: none;
+//         -webkit-user-select: none;
+//         -o-user-select: none;
+//     }
+
+//     & > input {
+//         background-color: transparent;
+//         width: calc(100% - 32px);
+//         &::placeholder {
+//             opacity: 0;
+//         }
+//         &:not(:placeholder-shown) {
+//             &.invalid {
+//                 border-color: $well-read    
+//             }
+//             &.valid {
+//                 border-color: $turquoise
+//             }
+//         }
+//         border-bottom: solid 0.2em $eastern-blue;
+//         outline: none !important;
+
+//         &:focus + label.placeholder, &:not(:placeholder-shown) + label.placeholder {
+//             top: 0em;
+//             opacity: 1;
+//         }
+//     }
+
+//     > .eye {
+//         & > label {
+//             margin-left: 0.5em;
+//             width: 24px !important;
+//             aspect-ratio: 1;
+//             overflow: hidden;
+//             display: block;
+//             position: relative;
+//             background-image: url("/assets/images/eyes.png");
+//             background-repeat: no-repeat;
+//             background-position: 0 0;
+//             transition: background-position 0.1s steps(11);
+//         }
+
+//         & > input {
+//             display: none;
+    
+//             &:checked + label {
+//                 // opacity: .3;
+//                 background-position: calc(-24px * 11) 0 !important;
+//             }
+//         }
+//     } 
+// }
