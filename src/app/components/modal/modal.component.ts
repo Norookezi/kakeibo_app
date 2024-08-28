@@ -1,7 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {DropdownComponent} from '../inputs/dropdown/dropdown.component';
 import { FormHelper, Inputs } from 'FormHelper';
 import { FormGroup, Validators } from '@angular/forms';
+import { ApiService } from '@services/api-service';
+import { DropdownEntry } from '@component/inputs/input/input.component';
+import { category } from 'Interfaces/category';
+import { subcategory } from 'Interfaces/subcategory';
 
 @Component({
   selector: 'app-modal',
@@ -9,13 +12,40 @@ import { FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent {
-  
-  formModal: Array<Inputs> = [
-  {name: "value", placeholder: "Value", type:"number", validators: [Validators.required]},
-  {name: "title", placeholder: "Title", type:"text", validators: [Validators.required]},
-  {name: "description", placeholder: "Description", type:"text", validators: [Validators.maxLength(500)]},
-  {name: "frequency", placeholder: "Frequency", type:"number", validators: []}
- ]
 
- modalForm: FormGroup = new FormGroup(FormHelper.makeForm(this.formModal));
+  formModal: Array<Inputs> = [
+    { name: "value", placeholder: "Value", type: "number", validators: [Validators.required] },
+    { name: "title", placeholder: "Title", type: "text", validators: [Validators.required] },
+    { name: "description", placeholder: "Description", type: "text", validators: [Validators.maxLength(500)] },
+  ]
+
+  modalForm: FormGroup = new FormGroup(FormHelper.makeForm(this.formModal));
+
+
+  categories: {[key:string]: DropdownEntry} = {
+    'Sélectionnez une catégorie': {value: 'default', selected: true, disabled: true}
+  }
+
+  subcategories: {[key:string]: DropdownEntry} = {
+    'Sélelectionnez une sous catégorie' : {value: 'default', selected:true, disabled:true}
+  }
+
+  budgetType: {[key:string]: DropdownEntry} = {
+    "Sélectionnez le type de dépense" : {value: 'default', selected:true, disabled:true}
+  }
+
+  constructor(private apiService: ApiService) { }
+  async ngOnInit() {
+    (await this.apiService.getCategories()).forEach((category: category)=> {
+      this.categories[category.name] = {
+        "value": category.id+""
+      }
+    });
+
+    (await this.apiService.getSubCategories()).forEach((subcategory: subcategory)=>{
+      this.subcategories[subcategory.name] = {
+        "value": subcategory.id+""
+      }
+    })
+  }
 }

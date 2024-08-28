@@ -4,9 +4,8 @@
 
       <form action="" name="modal" [formGroup]="modalForm">
          <app-input *ngFor="let item of formModal" [placeholder]="item.placeholder" [formControlName]="item.name" [type]="item.type"></app-input>
-         <app-dropdown>outcome/income</app-dropdown>
-         <app-dropdown>categories</app-dropdown>
-         <app-dropdown>subCategories</app-dropdown>
+         <app-input placeholder="Category" type="dropdown" [value]="categories"></app-input>
+         <app-input placeholder="SubCategory" type="dropdown" [value]="subcategories"></app-input>
          <app-button placeholder="Add" type="submit" [disabled]="modalForm.invalid"></app-button>
       </form>
    </div>
