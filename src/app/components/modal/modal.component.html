@@ -1,4 +1,4 @@
-   <span style="display:block; padding-top:8em;">Span</span>
+   <span class="title">Formulaire</span>
    <div class="modal-budgetline">
       <p>Modal bugetLine</p>
 
@@ -7,8 +7,11 @@
          <app-input placeholder="Category" type="dropdown" [value]="categories"></app-input>
          <app-input placeholder="SubCategory" type="dropdown" [value]="subcategories"></app-input>
          <app-input placeholder="BudgetType" type="dropdown" [value]="budgetType"></app-input>
-         <app-button placeholder="Add" type="submit" [disabled]="modalForm.invalid"></app-button>
+         <app-button (click)="close()" class="buttonSubmit" placeholder="Add" type="submit" [disabled]="modalForm.invalid"></app-button>
+         <app-button (click)="close()" placeholder="cancel"></app-button>
+
       </form>
+
    </div>
 
    <br>

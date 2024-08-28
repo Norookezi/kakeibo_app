@@ -13,6 +13,12 @@ import { budgetType } from 'Interfaces/budgetType';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent {
+  @Output() closeModal = new EventEmitter<void>();
+
+  @Input() Categories: Array<category> = [];
+  @Input() SubCategories: Array<subcategory> = [];
+  @Input() BudgetType: Array<budgetType> = [];
+
   formModal: Array<Inputs> = [
     {
       name: 'value',
@@ -83,5 +89,19 @@ export class ModalComponent {
         };
       }
     );
+  }
+
+  close() {
+    this.closeModal.emit();
+  }
+
+  onSubmit() {
+    console.log('Tentative de soumission du formulaire');
+    if (this.modalForm.valid) {
+      console.log('Formulaire soumis:', this.modalForm.value);
+      this.close(); // Fermer la modal après la soumission
+    } else {
+      console.log("Le formulaire n'est pas valide");
+    }
   }
 }

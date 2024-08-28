@@ -1,6 +1,12 @@
 <span style="display:block; padding-top:10em;"></span>
 <p>
   dashboard works!
-<app-modal></app-modal>
 </p>
+  <div class="btn-add">
+    <app-btn (click)="openModal()">Ajouter une dépense</app-btn>
+  </div>
+
+<app-modal *ngIf="isModalOpen" (closeModal)="closeModal()" [Categories]="categories" [SubCategories]="subCategories" [BudgetType]="budgetType"></app-modal>
+
+
 

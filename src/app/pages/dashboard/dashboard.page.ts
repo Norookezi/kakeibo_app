@@ -14,6 +14,8 @@ export class DashboardPage implements OnInit {
   subCategories: Array<subcategory> = [];
   budgetType: Array<budgetType> = [];
 
+  isModalOpen = false;
+
   constructor(private apiService: ApiService) {}
 
   async ngOnInit() {
@@ -24,4 +26,14 @@ export class DashboardPage implements OnInit {
     this.budgetType = await this.apiService.getBudgetType();
   }
   //ici la logique pour récuperer les données (catégorie, subcategorie etc..)
+
+  openModal() {
+    this.isModalOpen = true;
+    console.log(true);
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+    console.log(false);
+  }
 }
