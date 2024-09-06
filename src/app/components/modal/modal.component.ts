@@ -95,13 +95,15 @@ export class ModalComponent {
     this.closeModal.emit();
   }
 
-  onSubmit() {
+  onSubmit($event:Event) {
+    $event.preventDefault();
     console.log('Tentative de soumission du formulaire');
     if (this.modalForm.valid) {
-      console.log('Formulaire soumis:', this.modalForm.value);
+      console.log('Formulaire soumis:', this.modalForm.getRawValue());
       this.close(); // Fermer la modal après la soumission
     } else {
       console.log("Le formulaire n'est pas valide");
     }
   }
 }
+
