@@ -19,29 +19,6 @@ export class ModalComponent {
   @Input() SubCategories: Array<subcategory> = [];
   @Input() BudgetType: Array<budgetType> = [];
 
-  formModal: Array<Inputs> = [
-    {
-      name: 'value',
-      placeholder: 'Value',
-      type: 'number',
-      validators: [Validators.required],
-    },
-    {
-      name: 'title',
-      placeholder: 'Title',
-      type: 'text',
-      validators: [Validators.required],
-    },
-    {
-      name: 'description',
-      placeholder: 'Description',
-      type: 'text',
-      validators: [Validators.maxLength(500)],
-    },
-  ];
-
-  modalForm: FormGroup = new FormGroup(FormHelper.makeForm(this.formModal));
-
   categories: { [key: string]: DropdownEntry } = {
     'Sélectionnez une catégorie': {
       value: 'default',
@@ -65,6 +42,50 @@ export class ModalComponent {
       disabled: true,
     },
   };
+
+  formModal: Array<Inputs> = [
+    {
+      name: 'value',
+      placeholder: 'Value',
+      type: 'number',
+      validators: [Validators.required],
+    },
+    {
+      name: 'title',
+      placeholder: 'Title',
+      type: 'text',
+      validators: [Validators.required],
+    },
+    {
+      name: 'description',
+      placeholder: 'Description',
+      type: 'text',
+      validators: [Validators.maxLength(500)],
+    },
+    {
+      name: 'categorie',
+      placeholder: 'categorie',
+      type: 'dropdown',
+      validators:[],
+      value: this.categories,
+    },
+    {
+      name: 'Subcategorie',
+      placeholder: 'Subcategorie',
+      type: 'dropdown',
+      validators:[],
+      value: this.subcategories, 
+    },
+    {
+      name: 'budgetType',
+      placeholder: 'budgetType',
+      type: 'dropdown',
+      validators:[],
+      value: this.budgetType, 
+    },
+  ];
+
+  modalForm: FormGroup = new FormGroup(FormHelper.makeForm(this.formModal));
 
   constructor(private apiService: ApiService) {}
   async ngOnInit() {
