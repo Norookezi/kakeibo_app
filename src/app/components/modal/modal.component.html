@@ -5,10 +5,10 @@
          <form action="" name="modal" [formGroup]="modalForm" (submit)="onSubmit($event)">
             <app-input *ngFor="let item of formModal" [placeholder]="item.placeholder" [formControlName]="item.name" [type]="item.type"></app-input>
             <app-button class="buttonSubmit" placeholder="Add" type="submit" [disabled]="modalForm.invalid"></app-button>
-            <app-button (click)="close()" placeholder="cancel"></app-button>
          </form>
       </div>
    </div>
+   <app-button (click)="close()" placeholder="cancel"></app-button>
 
 
                                                                                                                                                                                                                
