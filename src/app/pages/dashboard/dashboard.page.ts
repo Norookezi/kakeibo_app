@@ -14,8 +14,9 @@ export class DashboardPage implements OnInit {
   categories: Array<Icategory> = [];
   subCategories: Array<Isubcategory> = [];
   budgetType: Array<IbudgetType> = [];
-  budgetLine: Array<IbudgetLine> = [];
-  isModalOpen = false;
+  budgetLines: Array<IbudgetLine> = [];
+
+  isModalOpen: boolean = false;
 
   constructor(private apiService: ApiService) {}
 
@@ -26,7 +27,7 @@ export class DashboardPage implements OnInit {
 
     this.budgetType = await this.apiService.getBudgetType();
 
-    this.budgetLine = await this.apiService.getBudgetLine();
+    this.budgetLines = await this.apiService.getBudgetLine();
   }
   //ici la logique pour récuperer les données (catégorie, subcategorie etc..)
 
@@ -38,5 +39,15 @@ export class DashboardPage implements OnInit {
   closeModal() {
     this.isModalOpen = false;
     console.log(false);
+  }
+
+  //charger les budgetlines depuis l'api
+  handleExpenseSubmit(expenseData: IbudgetLine) {
+    this.budgetLines.push(expenseData);
+
+    //ajouter appel API pour sauvegarder la dépense
+    //
+
+    this.closeModal();
   }
 }

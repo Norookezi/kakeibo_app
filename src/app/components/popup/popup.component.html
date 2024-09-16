@@ -1,22 +1,39 @@
 
 <div class="wrap-container2">
-    <div class="image2">
-        <p>Image</p>
+    <div *ngFor="let line of budgetLines">
+        <div class="image2">
+            <p>{{line.userId}}</p>
+        </div>
+        <div class="title2">
+            <p class="title">{{line.title}}</p>
+            <p class="date">{{line.date}}</p>
+        </div>
+        <div class="category-sub">
+            <p>{{line.category}}</p>
+            <p>{{line.subCategory}}</p>
+        </div>
+        <div class="description">
+            <p>{{line.description}}</p>
+        </div>
+        <div class="value2">
+            <p>{{line.value}}</p>
+        </div>
     </div>
-    <div class="title2">
-        <p class="title">Auchan</p>
-        <p class="date">11/09/2024</p>
-    </div>
-    <div class="category-sub">
-        <p>Alimentation</p>
-        <p>Courses</p>
-    </div>
-    <div class="description">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, ipsam adipisci. Tempora, officia recusandae eius libero, accusamus quae quam consequatur esse aspernatur obcaecati sequi provident modi pariatur earum nemo facere?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, ipsam adipisci. Tempora, officia recusandae eius libero, accusamus quae quam consequatur esse aspernatur obcaecati sequi provident modi pariatur earum nemo facere?
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente eveniet quia hic, voluptates facere quidem maiores laudantium explicabo totam reiciendis.</p>
-    </div>
-    <div class="value2">
-        <p>50.00€</p>
-    </div>
+   
 </div>
+
+<h3>Dépenses</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Montant</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let line of budgetLines">
+      <td>{{ line.description }}</td>
+      <td>{{ line.category }}</td>
+    </tr>
+  </tbody>
+</table>
