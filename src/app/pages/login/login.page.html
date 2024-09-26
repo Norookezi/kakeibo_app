@@ -1,11 +1,11 @@
 <div class="bod">
   <div class="login-modal">
-    <form *ngIf="activeForm==='login'" action="" name="login" [formGroup]="loginForm">
+    <form *ngIf="activeForm==='login'" action="" name="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <app-input *ngFor="let item of formLogin" [placeholder]="item.placeholder" [formControlName]="item.name"
         [type]="item.type"></app-input>
       <app-button placeholder="Connection" type="submit" [disabled]="loginForm.invalid"></app-button>
     </form>
-    <form *ngIf="activeForm==='register'" action="" name="register" [formGroup]="registerForm">
+    <form *ngIf="activeForm==='register'" action="" name="register" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <app-input *ngFor="let item of formRegister" [placeholder]="item.placeholder" [formControlName]="item.name"
         [type]="item.type"></app-input>
       <app-button placeholder="Connection" type="submit" [disabled]="registerForm.invalid"></app-button>
