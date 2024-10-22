@@ -21,6 +21,10 @@ jobs:
     - name: Build project
       run: |
         npm run build
+
+    - name: Test unitaires
+      run: |
+        npm run test
     
     - name: Read CHANGELOG
       id: changelog
