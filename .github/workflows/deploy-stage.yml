@@ -33,10 +33,34 @@ jobs:
           SSH_HOST: ${{ secrets.HOST }}
 
       - name: Check connection
-        run: echo "SSH Connection Successful"
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ inputs.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          command_timeout: 30m
+          script: |
+            echo "SSH Connection Successful"
 
       - name: Download last release
-        run: curl -L https://codeload.github.com/Norookezi/kakeibo_app/tar.gz/refs/tags/${{ steps.node_release.outputs.release }}
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ inputs.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          command_timeout: 30m
+          script: |
+            curl -L https://codeload.github.com/Norookezi/kakeibo_app/tar.gz/refs/tags/${{ steps.node_release.outputs.release }}
 
       - name: Replace the previous prod release
-        run: tar -xvzf ./${{ steps.node_release.outputs.release }}.tar.gz --strip-components=1
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ inputs.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          command_timeout: 30m
+          script: |
+            tar -xvzf ./${{ steps.node_release.outputs.release }}.tar.gz --strip-components=1
