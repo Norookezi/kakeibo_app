@@ -24,11 +24,11 @@ jobs:
           SSH_KEY: ${{ secrets.KEY }}
           SSH_HOST: ${{ secrets.HOST }}
 
-      - name: Debug SSH connection
+      - name: Check connection
         run: ssh staging 'echo "SSH Connection Successful" && ls -la /home/git'
 
-      - name: Dump GitHub context
-        run: ssh staging 'curl -L https://codeload.github.com/Norookezi/kakeibo_app/tar.gz/refs/tags/${{ steps.node_release.outputs.release }} -o /home/git/${{ steps.node_release.outputs.release }}.tar.gz'
+      - name: Download last release
+        run: ssh staging 'curl -L https://codeload.github.com/Norookezi/kakeibo_app/tar.gz/refs/tags/${{ steps.node_release.outputs.release }}'
 
-      - name: Dump GitHub context
-        run: ssh staging 'cd /home/git && rm -rf ./kakeibo_app/* && tar -xvzf ./${{ steps.node_release.outputs.release }}.tar.gz --strip-components=1 -C kakeibo_app'
+      - name: Replace the previous prod release
+        run: ssh staging 'tar -xvzf ./${{ steps.node_release.outputs.release }}.tar.gz --strip-components=1'
