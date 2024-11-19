@@ -25,7 +25,7 @@ jobs:
           SSH_HOST: ${{ secrets.HOST }}
 
       - name: Check connection
-        run: echo "SSH Connection Successful" && ls -la /home/git
+        run: echo "SSH Connection Successful"
 
       - name: Download last release
         run: curl -L https://codeload.github.com/Norookezi/kakeibo_app/tar.gz/refs/tags/${{ steps.node_release.outputs.release }}
