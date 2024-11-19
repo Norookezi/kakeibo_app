@@ -25,10 +25,10 @@ jobs:
           SSH_HOST: ${{ secrets.HOST }}
 
       - name: Check connection
-        run: ssh staging 'echo "SSH Connection Successful" && ls -la /home/git'
+        run: echo "SSH Connection Successful" && ls -la /home/git
 
       - name: Download last release
-        run: ssh staging 'curl -L https://codeload.github.com/Norookezi/kakeibo_app/tar.gz/refs/tags/${{ steps.node_release.outputs.release }}'
+        run: curl -L https://codeload.github.com/Norookezi/kakeibo_app/tar.gz/refs/tags/${{ steps.node_release.outputs.release }}
 
       - name: Replace the previous prod release
-        run: ssh staging 'tar -xvzf ./${{ steps.node_release.outputs.release }}.tar.gz --strip-components=1'
+        run: tar -xvzf ./${{ steps.node_release.outputs.release }}.tar.gz --strip-components=1
