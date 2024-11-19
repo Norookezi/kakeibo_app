@@ -35,7 +35,7 @@ jobs:
           port: 22
           command_timeout: 30m
           script: |
-            curl -L https://codeload.github.com/Norookezi/kakeibo_app/tar.gz/refs/tags/${{ steps.node_release.outputs.release }}
+            curl -L https://codeload.github.com/Norookezi/kakeibo_app/tar.gz/refs/tags/${{ steps.node_release.outputs.release }} -o /home/git/${{ steps.node_release.outputs.release }}.tar.gz
 
       - name: Replace the previous prod release
         uses: appleboy/ssh-action@v0.1.10
@@ -46,4 +46,6 @@ jobs:
           port: 22
           command_timeout: 30m
           script: |
-            tar -xvzf ./${{ steps.node_release.outputs.release }}.tar.gz --strip-components=1
+            cd /home/git
+            rm -rf ./kakeibo_app/*
+            tar -xvzf ./${{ steps.node_release.outputs.release }}.tar.gz --strip-components=1 -C ./kakeibo_app/
